@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 import random, string
+from Blog.models import BlogModel
 
 random = random.Random()
 
@@ -19,3 +20,11 @@ def result(request):
             password += character
     context = {'email': email, 'password': password}
     return render(request, "blog/result.html", context)
+
+
+def generate_blogs(request):
+    all_blogs = BlogModel.objects.all()
+    context = {
+        'all_blogs': all_blogs,
+    }
+    return render(request, 'blog/details.html', context)
