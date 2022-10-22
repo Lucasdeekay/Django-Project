@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container p-5 my-5 text-center">
+
+    {% for msg in messages %}
+    {% if msg.tags == "success" %}
+    <p class="text-success">{{ msg }}</p>
+    {% else %}
+    <p class="text-danger">{{ msg }}</p>
+    {% endif %}
+    {% endfor %}
+
+    <div>
+        <img class="d-block mx-auto mb-4" src="" alt="image">
+        <h3 class="fw-normal">Full Name</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quisquam possimus error, aperiam laboriosam sequi perferendis doloremque quos, necessitatibus expedita minus laborum adipisci atque et sit nobis corrupti. Magnam, amet!</p>
+    </div>
+
+    <div>
+        <a href="{% url 'Profile:logout' %}" class="btn btn-sm btn-danger">Logout</a>
+    </div>
+    
+
+</div>
+  
+{% endblock content %}
+
+
